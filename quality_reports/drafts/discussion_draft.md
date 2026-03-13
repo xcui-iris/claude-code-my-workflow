@@ -49,5 +49,5 @@ Several limitations of this study warrant acknowledgment.
 - ~~**[CITE]** Sims (1980)~~ — filled ✓ → Sims, C.A. (1980). "Macroeconomics and Reality." *Econometrica* 48(1): 1–48.
 - ~~**[CITE]** Hartigan and Hartigan (1985)~~ — filled ✓ → Hartigan, J.A. and Hartigan, P.M. (1985). "The Dip Test of Unimodality." *Annals of Statistics* 13(1): 70–84.
 - **[CHECK]** Number of months with N < 50 for dip test — pull from `01_quant_vuca.py` diagnostic output
-- **[CHECK]** 2021–2022 AEB level — confirm it was indeed elevated during this period from fig1
+- ~~**[CHECK]** 2021–2022 AEB level~~ — **CONFIRMED by user** ✓ AEB was elevated in 2021–2022.
 - Consider adding a subsection on policy implications if journal reviewers request it

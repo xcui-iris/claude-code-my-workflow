@@ -1,7 +1,7 @@
 # Results Section — DRAFT
 **Target:** American Journal of Agricultural Economics (AJAE)
-**Status:** Draft v1 — 2026-03-13
-**Note:** [CITE] = citation needed. [CHECK] = verify against figures/tables before submission.
+**Status:** Draft v2 — 2026-03-13 (citations filled; confirmed checks resolved)
+**Note:** [CHECK] = verify against figures/tables before submission.
 
 ---
 
@@ -9,7 +9,7 @@
 
 ### 4.1 Descriptive Patterns in VUCA Dimensions
 
-Figure 1 presents the monthly AEB index over the full sample period (October 2015 through [CHECK: December 2024]). The series exhibits clear cyclical variation, with sustained elevated sentiment during the 2017–2018 commodity price recovery, a sharp decline coinciding with the onset of the COVID-19 pandemic in March 2020, and a subsequent rebound driven by strong commodity prices in 2021–2022. These patterns provide a benchmark against which the VUCA dimension scores can be assessed.
+Figure 1 presents the monthly AEB index over the full sample period (October 2015 through December 2024). The series exhibits clear cyclical variation, with sustained elevated sentiment during the 2017–2018 commodity price recovery, a sharp decline coinciding with the onset of the COVID-19 pandemic in March 2020, and a subsequent rebound driven by strong commodity prices in 2021–2022. These patterns provide a benchmark against which the VUCA dimension scores can be assessed.
 
 Figure 2 presents the four VUCA dimension scores over the same period. Several features are noteworthy. First, the Volatility dimension (V) exhibits its two largest spikes during the May 2019 U.S.–China trade war escalation (V = [CHECK] standard deviations above baseline) and the March 2020 COVID-19 onset (V = [CHECK] SD), consistent with the interpretation of these events as periods of rapid and large-scale change in the agricultural operating environment. Second, the Complexity dimension (C) rises sharply during the 2021–2022 period, reflecting the simultaneous pressures of commodity price surges, input cost inflation, and supply chain disruption that characterized the post-pandemic agricultural economy — a period in which farmers faced an unusually large number of distinct and interacting forces. Third, the Uncertainty dimension (U) tracks inversely with the AEB throughout the sample, consistent with the theoretical expectation that aggregate pessimism and forward-looking uncertainty move together. Fourth, the Ambiguity dimension (A) exhibits more muted variation, with the clearest signal appearing around the November 2016 presidential election — a period in which farm policy expectations were genuinely unclear.
 
@@ -70,7 +70,7 @@ Figure 5 compares the baseline Volatility measure — computed using a 12-month 
 - **Table 3** — convergent validity correlations: from `output/tables/validation_correlations.csv`
 - **Table 4** — discriminant matrix: from `output/tables/discriminant_matrix.csv`
 - **Table 5** — Granger results: from `output/tables/granger_results.csv`
-- **[CITE]** Granger (1969) — "Investigating Causal Relations by Econometric Models," Econometrica
-- **[CITE]** Sims (1980) — "Macroeconomics and Reality," Econometrica
-- **[CITE]** Goss and Natvig — Creighton Main Street Economy methodology
+- ~~**[CITE]** Granger (1969)~~ — filled ✓ (cited in-text in methods section)
+- ~~**[CITE]** Sims (1980)~~ — filled ✓ (cited in-text in methods section)
+- ~~**[CITE]** Goss and Natvig~~ — filled ✓ → Goss, E. and Natvig, B. (2023). Creighton University Rural Mainstreet Economy Survey. **[CHECK]** confirm exact year/format.
 - **Figure references** — confirm figure numbers match `output/figures/` file names

@@ -130,7 +130,7 @@ where $y_t$ is the external indicator, $x_t$ is the VUCA dimension score, and $L
 ## Notes for revision
 
 - **[CHECK]** AEB sample size per wave (~400) and exact survey window — confirm with Mintert/Widmar documentation
-- **[CHECK]** Gross sales threshold ($500K) — verify eligibility criteria from AEB methodology docs
+- ~~**[CHECK]** Gross sales threshold ($500K)~~ — **CONFIRMED by user** ✓ $500,000 annual gross sales.
 - **[CHECK]** Date range: confirm first wave (Oct 2015) and last wave in sample
 - ~~**[CITE]** Mintert and Widmar~~ — filled ✓ → Mintert, J. and Widmar, D.A. (2016). Purdue University/CME Group Ag Economy Barometer. **[CHECK]** confirm exact working paper/report citation details with Mintert/Widmar docs.
 - ~~**[CITE]** Bennett and Lemoine (2014)~~ — filled ✓

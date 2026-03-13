@@ -30,7 +30,7 @@ The remainder of the paper is organized as follows. Section 2 reviews the releva
 - **[CHECK]** Opening paragraph framing — confirm this aligns with the paper's broader argument before submission
 - **[CHECK]** "first application of VUCA to agricultural sentiment" — verify with a literature search
 - ~~**[CITE]** Bennis and Nanus (1985)~~ — filled ✓ → Bennis, W.G. and Nanus, B. (1985). *Leaders: The Strategies for Taking Charge.* Harper & Row.
-- ~~**[CITE]** Bennett and Lemoine (2014)~~ — filled ✓ → Bennett, N. and Lemoine, G.J. (2014). "What VUCA Really Means for You." *Harvard Business Review*, January–February.
+- ~~**[CITE]** Bennett and Lemoine (2014)~~ — filled ✓ → Bennett, N. and Lemoine, G.J. (2014). "What a Difference a Word Makes: Understanding Threats to Performance in a VUCA World." *Business Horizons* 57(3): 311–317. (**NOTE:** journal is *Business Horizons*, not HBR)
 - ~~**[CITE]** Baker, Bloom, Davis (2016)~~ — filled ✓ → Baker, S.R., Bloom, N. and Davis, S.J. (2016). "Measuring Economic Policy Uncertainty." *Quarterly Journal of Economics* 131(4): 1593–1636.
 - ~~**[CITE]** Blei, Ng, Jordan (2003)~~ — filled ✓ → Blei, D.M., Ng, A.Y. and Jordan, M.I. (2003). "Latent Dirichlet Allocation." *Journal of Machine Learning Research* 3: 993–1022.
 - **[TODO]** Add 1–2 sentences on the literature gap more explicitly (what prior work has NOT done)
