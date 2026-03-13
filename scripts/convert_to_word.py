@@ -39,59 +39,8 @@ import config
 DRAFTS = config.PROJECT_ROOT / "quality_reports" / "drafts"
 OUTPUT_DOCX = config.OUTPUT_DIR / "VUCA_paper_draft.docx"
 
-# ── Equation conversion ───────────────────────────────────────────────────────
-# Map LaTeX display equations to readable plain-text approximations.
-# Keys are substrings to match; values are plain-text replacements.
+# ── Equation counter ─────────────────────────────────────────────────────────
 EQ_COUNTER = [0]
-
-EQUATION_MAP = [
-    # Keys are plain substrings to find in the LaTeX source
-    ("z_{it}",
-     "z_it = (x_it - x_i,base_mean) / sigma_i,base"),
-    ("\\text{VUCA}",
-     "VUCA_d,t = (1/2)(z_d,quant,t + z_d,text,t)"),
-    ("V_{\\text{quant}",
-     "V_quant,t = SD(delta_AEB_{t-11}, ..., delta_AEB_t)"),
-    ("V_{\\text{text}",
-     "V_text,t = 1 - |T_t intersect T_{t-1}| / |T_t union T_{t-1}|"),
-    ("U_{\\text{quant}",
-     "U_quant,t = -mean_IFE_t"),
-    ("U_{\\text{text}",
-     "U_text,t = (1/N_t) * sum_i 1[exists w in D_U : w in r_it]"),
-    ("C_{\\text{text}",
-     "C_text,t = (1/N_t) * sum_i H(theta_it),  H(theta) = -sum_k theta_k log theta_k"),
-    ("C_{\\text{quant}",
-     "C_quant,t = 1 - lambda_1^(t)"),
-    ("A_{\\text{quant}",
-     "A_quant,t = (1/3)(z_Akurt,t + z_Adip,t + z_Aflip,t)"),
-    ("A_{\\text{text}",
-     "A_text,t = (1/2)(z_Apol,t + z_Aphr,t)"),
-    ("\\beta_l y_{t-l}",
-     "y_t = alpha + sum_{l=1}^{L} beta_l * y_{t-l} + sum_{l=1}^{L} gamma_l * x_{t-l} + epsilon_t"),
-    ("H(\\boldsymbol",
-     "H(theta_it) = -sum_k theta_{itk} log theta_{itk}"),
-    ("\\frac",
-     "[ see LaTeX source for full equation ]"),
-]
-
-
-def latex_to_plain(latex: str) -> str:
-    """Best-effort conversion of a LaTeX display equation to plain text."""
-    text = latex.strip().strip("$$").strip()
-    for pattern, replacement in EQUATION_MAP:
-        # Use plain substring matching (patterns contain LaTeX, not regex)
-        if pattern in text:
-            EQ_COUNTER[0] += 1
-            return f"[EQ {EQ_COUNTER[0]}]  {replacement}"
-    # Fallback: clean up common LaTeX tokens
-    text = re.sub(r"\\text\{([^}]+)\}", r"\1", text)
-    text = re.sub(r"\\overline\{([^}]+)\}", r"\1̄", text)
-    text = re.sub(r"\\bar\{([^}]+)\}", r"\1̄", text)
-    text = re.sub(r"\\left|\\right", "", text)
-    text = re.sub(r"\\[a-zA-Z]+", "", text)
-    text = re.sub(r"[{}]", "", text)
-    EQ_COUNTER[0] += 1
-    return f"[EQ {EQ_COUNTER[0]}]  {text.strip()}"
 
 
 def clean_inline_math(text: str) -> str:
@@ -177,15 +126,45 @@ def add_heading(doc: Document, text: str, level: int) -> None:
 
 
 def add_equation(doc: Document, latex: str) -> None:
-    """Add a display equation as indented plain-text."""
-    plain = latex_to_plain(latex)
+    """
+    Add a display equation as LaTeX source in Courier New.
+    Preserves the raw LaTeX so it can be:
+      - Copy-pasted into a LaTeX template, or
+      - Converted in Word via Alt+= (Word's LaTeX equation input)
+    """
+    EQ_COUNTER[0] += 1
+    src = latex.strip().strip("$$").strip()
+
     p = doc.add_paragraph()
     p.paragraph_format.left_indent = Inches(0.5)
-    p.paragraph_format.line_spacing = Pt(24)
-    p.paragraph_format.space_before = Pt(4)
-    p.paragraph_format.space_after = Pt(4)
-    run = p.add_run(plain)
-    set_font(run, size_pt=12, italic=True)
+    p.paragraph_format.line_spacing = Pt(18)
+    p.paragraph_format.space_before = Pt(6)
+    p.paragraph_format.space_after = Pt(6)
+
+    # Equation number label
+    run_num = p.add_run(f"({EQ_COUNTER[0]})  ")
+    run_num.font.name = "Times New Roman"
+    run_num.font.size = Pt(11)
+
+    # LaTeX source in monospace
+    run_eq = p.add_run(src)
+    run_eq.font.name = "Courier New"
+    run_eq.font.size = Pt(10)
+
+    # Tip annotation on first equation only
+    if EQ_COUNTER[0] == 1:
+        tip = doc.add_paragraph()
+        tip.paragraph_format.left_indent = Inches(0.5)
+        tip.paragraph_format.space_after = Pt(2)
+        tip.paragraph_format.line_spacing = Pt(14)
+        run_tip = tip.add_run(
+            "[To render: In Word, place cursor after equation, press Alt+=, "
+            "then paste the LaTeX source into the equation editor]"
+        )
+        run_tip.font.name = "Times New Roman"
+        run_tip.font.size = Pt(9)
+        run_tip.font.italic = True
+        run_tip.font.color.rgb = None  # default grey not supported; leave as black
 
 
 def add_table_from_markdown(doc: Document, rows: list[str]) -> None:
@@ -551,7 +530,8 @@ def main():
     print("[DONE] convert_to_word.py complete.")
     print()
     print("Next steps before submission:")
-    print("  1. Replace [EQ n] plain-text equations with proper Word equations")
+    print("  1. Render equations: in Word, click after each LaTeX line,")
+    print("     press Alt+=, paste the LaTeX source, press Enter")
     print("  2. Resolve remaining [CHECK] items (see notes in each section)")
     print("  3. Insert actual figure image files into the Figures section")
     print("  4. Verify reference list against journal style guide")
