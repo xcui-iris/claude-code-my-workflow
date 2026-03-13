@@ -1,0 +1,21 @@
+VUCA Validation Summary
+========================================
+
+Convergent Validity (Pearson r):
+dimension   target  pearson_r  pearson_p
+  V_score AEB_mean      0.346      0.000
+  U_score AEB_mean     -0.758      0.000
+  C_score AEB_mean     -0.069      0.456
+  A_score AEB_mean     -0.240      0.007
+
+Discriminant Validity (Cross-correlation matrix):
+         V_score  U_score  C_score  A_score
+V_score    1.000   -0.352   -0.122    0.139
+U_score   -0.352    1.000   -0.418    0.365
+C_score   -0.122   -0.418    1.000   -0.277
+A_score    0.139    0.365   -0.277    1.000
+
+Phase 2 (not yet implemented): Granger causality against
+  - USDA farm loan demand series
+  - USDA/NASS machinery sales
+  - Corn/soybean futures realized volatility

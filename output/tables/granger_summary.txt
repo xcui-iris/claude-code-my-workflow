@@ -1,0 +1,35 @@
+VUCA → Agricultural Indicators: Granger Causality Results
+============================================================
+Source: Creighton University Main Street Economy Survey
+Max lags tested: 4 months
+
+Significance: *** p<0.01  ** p<0.05  * p<0.10
+
+
+Equipment Sales
+----------------------------------------
+  V_score: best lag=2, F=2.505, p=0.086 *
+  U_score: best lag=1, F=0.890, p=0.348 n.s.
+  C_score: best lag=3, F=1.039, p=0.378 n.s.
+  A_score: best lag=4, F=0.784, p=0.538 n.s.
+
+Farmland Prices
+----------------------------------------
+  V_score: best lag=3, F=3.458, p=0.019 **
+  U_score: best lag=1, F=3.250, p=0.074 *
+  C_score: best lag=1, F=0.373, p=0.543 n.s.
+  A_score: best lag=3, F=0.864, p=0.462 n.s.
+
+Loan Volume
+----------------------------------------
+  V_score: best lag=1, F=0.492, p=0.485 n.s.
+  U_score: best lag=4, F=1.202, p=0.315 n.s.
+  C_score: best lag=3, F=0.384, p=0.765 n.s.
+  A_score: best lag=4, F=2.827, p=0.028 **
+
+Note: Granger causality tests whether lagged VUCA scores contain
+predictive information for the external series beyond the series'
+own lags. It does not imply structural causation.
+
+Phase 2 extension: consider VAR impulse-response functions
+for the significant pairs.
