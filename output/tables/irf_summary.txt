@@ -1,0 +1,22 @@
+VAR Impulse-Response Function Summary
+============================================================
+IRF horizon: 12 months
+Bootstrap CI: 90%,  n_boot=500
+
+For each pair: peak IRF, period of peak, and whether the
+90% CI excludes zero at any horizon.
+
+Pair: Volatility -> Farmland Prices
+  VAR lag order: 1
+  Peak IRF: 0.4727 at month 1
+  CI excludes zero at months: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+
+Pair: Ambiguity -> Farm Loan Volume
+  VAR lag order: 2
+  Peak IRF: -2.0588 at month 1
+  CI excludes zero at months: [1, 2]
+
+Pair: Uncertainty -> Farmland Prices
+  VAR lag order: 1
+  Peak IRF: -0.4991 at month 1
+  CI excludes zero at months: []

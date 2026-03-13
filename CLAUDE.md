@@ -172,5 +172,7 @@ The following template features are **not used** in this Python/applied-econ pro
 | `01_quant_vuca.py` | Ready | V, U, A quant measures |
 | `02_text_vuca.py` | Ready | LDA-based C, text V/U/A |
 | `03_combine_standardize.py` | Ready | Z-score + combine |
-| `04_validation.py` | Ready | Internal validation; external Granger = Phase 2 |
-| `05_visualize.py` | Ready | 5 publication figures |
+| `04_validation.py` | Ready | Internal validation |
+| `04b_granger_validation.py` | Ready | Granger causality vs Creighton MSE series |
+| `05_visualize.py` | Ready | 5 publication figures (fig1–fig5) |
+| `06_var_irf.py` | Ready | VAR IRF for V->farmland, A->loans, U->farmland |

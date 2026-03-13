@@ -134,7 +134,7 @@ def load_external_data(path: pathlib.Path) -> pd.DataFrame:
     wide = wide.set_index("Date").drop(columns=["Year", "Month"])
 
     print(f"[EXTERNAL] Loaded {len(wide)} months from {len(year_sheets)} year sheets")
-    print(f"[EXTERNAL] Date range: {wide.index[0].strftime('%Y-%m')} → {wide.index[-1].strftime('%Y-%m')}")
+    print(f"[EXTERNAL] Date range: {wide.index[0].strftime('%Y-%m')} to {wide.index[-1].strftime('%Y-%m')}")
     print(f"[EXTERNAL] Variables: {list(wide.columns)}")
     print(f"[EXTERNAL] Sample:\n{wide.head(3).to_string()}")
 
