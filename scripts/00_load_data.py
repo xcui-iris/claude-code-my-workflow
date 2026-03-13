@@ -60,6 +60,13 @@ def load_aeb(path: pathlib.Path) -> pd.DataFrame:
     # Convert 2-digit years (e.g. 15 → 2015)
     df["Year"] = df["Year"].apply(lambda y: y + 2000 if y < 100 else y)
 
+    # Drop stray future rows beyond sample end (2024-12)
+    before = len(df)
+    df = df[df["Year"] <= 2024]
+    dropped_future = before - len(df)
+    if dropped_future:
+        print(f"[AEB] Dropped {dropped_future} rows with Year > 2024")
+
     # Date range
     date_min = f"{df['Year'].min()}-{df['Month'].min():02d}"
     date_max = f"{df['Year'].max()}-{df['Month'].max():02d}"
