@@ -1,7 +1,7 @@
 # Methods Section — DRAFT
 **Target:** American Journal of Agricultural Economics (AJAE)
-**Status:** Draft v1 — 2026-03-13
-**Note:** [CITE] tags mark citations to be confirmed. [CHECK] tags mark facts to verify against paper data.
+**Status:** Draft v2 — 2026-03-13 (citations filled)
+**Note:** [CHECK] tags mark facts to verify against paper data.
 
 ---
 
@@ -11,9 +11,9 @@
 
 #### 3.1.1 Ag Economy Barometer Survey
 
-We use individual-level microdata from the Purdue University/CME Group Ag Economy Barometer (AEB), a monthly survey of U.S. agricultural producers conducted since October 2015 [CITE: Mintert and Widmar]. The survey samples approximately 400 farmers and farm operators each month, with respondents drawn from a national panel of agricultural producers with annual gross sales of at least $500,000. The survey is designed to capture sentiment about current and future farm business conditions and is fielded during the first two weeks of each month.
+We use individual-level microdata from the Purdue University/CME Group Ag Economy Barometer (AEB), a monthly survey of U.S. agricultural producers conducted since October 2015 (Mintert and Widmar, 2016). The survey samples approximately 400 farmers and farm operators each month, with respondents drawn from a national panel of agricultural producers with annual gross sales of at least $500,000. The survey is designed to capture sentiment about current and future farm business conditions and is fielded during the first two weeks of each month.
 
-Our analytical sample spans [CHECK: October 2015 through December 2024], comprising [CHECK: 123] monthly waves and [CHECK: 49,340] individual survey responses. The core outcome measures are the AEB index, the Index of Current Conditions (ICC), and the Index of Future Expectations (IFE). Each index is constructed from a subset of five survey questions using a diffusion index methodology analogous to the University of Michigan's Index of Consumer Sentiment [CITE: Curtin]. The AEB is a composite of the ICC and IFE, with the IFE receiving greater weight to reflect the forward-looking orientation of the barometer.
+Our analytical sample spans [CHECK: October 2015 through December 2024], comprising [CHECK: 123] monthly waves and [CHECK: 49,340] individual survey responses. The core outcome measures are the AEB index, the Index of Current Conditions (ICC), and the Index of Future Expectations (IFE). Each index is constructed from a subset of five survey questions using a diffusion index methodology analogous to the University of Michigan's Index of Consumer Sentiment (Curtin, 2007). The AEB is a composite of the ICC and IFE, with the IFE receiving greater weight to reflect the forward-looking orientation of the barometer.
 
 In addition to the structured survey questions, a subset of respondents provide open-ended text responses to a prompt asking them to describe current conditions affecting their farm operation. These responses are archived as monthly word cloud files and constitute the text-based component of our VUCA measures. Our text corpus contains [CHECK: approximately 47,668] individual responses pooled across the full sample period.
 
@@ -21,7 +21,7 @@ In addition to the structured survey questions, a subset of respondents provide 
 
 ### 3.2 Measuring VUCA in Agricultural Sentiment
 
-The VUCA framework — originally developed in military strategic planning and subsequently adopted in organizational and management research [CITE: Bennett and Lemoine, 2014] — decomposes environmental turbulence into four conceptually distinct dimensions: Volatility (magnitude and speed of change), Uncertainty (lack of predictability), Complexity (multiplicity of forces), and Ambiguity (unclear causal relationships). We operationalize each dimension using two complementary sub-measures: a quantitative measure derived from the structured survey indices and a text-based measure derived from the open-ended responses. The two sub-measures are standardized and combined into a single monthly score for each dimension.
+The VUCA framework — originally developed in military strategic planning and subsequently adopted in organizational and management research (Bennett and Lemoine, 2014) — decomposes environmental turbulence into four conceptually distinct dimensions: Volatility (magnitude and speed of change), Uncertainty (lack of predictability), Complexity (multiplicity of forces), and Ambiguity (unclear causal relationships). We operationalize each dimension using two complementary sub-measures: a quantitative measure derived from the structured survey indices and a text-based measure derived from the open-ended responses. The two sub-measures are standardized and combined into a single monthly score for each dimension.
 
 #### 3.2.1 Standardization
 
@@ -61,9 +61,9 @@ Uncertainty reflects the degree to which the future is unpredictable. Our quanti
 
 $$U_{\text{quant},t} = -\overline{\text{IFE}}_t$$
 
-where $\overline{\text{IFE}}_t$ is the monthly cross-sectional mean of the individual IFE scores. The IFE aggregates responses to questions about expected farm financial conditions, capital expenditures, and land values over the coming 12 months. A decline in IFE — farmers becoming more pessimistic about the future — corresponds to rising uncertainty, so the negation aligns the direction of $U_{\text{quant}}$ with the theoretical expectation. This specification is consistent with the use of consumer expectations indices as uncertainty proxies in the macroeconomics literature [CITE: Leduc and Liu, 2016].
+where $\overline{\text{IFE}}_t$ is the monthly cross-sectional mean of the individual IFE scores. The IFE aggregates responses to questions about expected farm financial conditions, capital expenditures, and land values over the coming 12 months. A decline in IFE — farmers becoming more pessimistic about the future — corresponds to rising uncertainty, so the negation aligns the direction of $U_{\text{quant}}$ with the theoretical expectation. This specification is consistent with the use of consumer expectations indices as uncertainty proxies in the macroeconomics literature (Leduc and Liu, 2016).
 
-Our text-based uncertainty measure ($U_{\text{text}}$) is a dictionary-based approach adapted from the Economic Policy Uncertainty (EPU) framework [CITE: Baker, Bloom, and Davis, 2016]. For each month, we compute the share of open-ended responses containing at least one term from a combined dictionary of general uncertainty words (e.g., *uncertain*, *unpredictable*, *risk*) and agricultural policy-specific terms (e.g., *tariff*, *trade war*, *regulation*, *input costs*, *drought*):
+Our text-based uncertainty measure ($U_{\text{text}}$) is a dictionary-based approach adapted from the Economic Policy Uncertainty (EPU) framework (Baker, Bloom, and Davis, 2016). For each month, we compute the share of open-ended responses containing at least one term from a combined dictionary of general uncertainty words (e.g., *uncertain*, *unpredictable*, *risk*) and agricultural policy-specific terms (e.g., *tariff*, *trade war*, *regulation*, *input costs*, *drought*):
 
 $$U_{\text{text},t} = \frac{1}{N_t} \sum_{i=1}^{N_t} \mathbf{1}\left[\exists\, w \in \mathcal{D}_U : w \in r_{it}\right]$$
 
@@ -73,7 +73,7 @@ where $N_t$ is the number of responses in month $t$, $r_{it}$ is the text of res
 
 #### 3.2.4 Complexity
 
-Complexity captures the number of distinct forces acting simultaneously on farmer decision-making. We operationalize this using Latent Dirichlet Allocation (LDA) [CITE: Blei, Ng, and Jordan, 2003] applied to the pooled text corpus. We fit a $K = 10$ topic model on all monthly responses, then extract per-month topic share vectors representing the distribution of discourse across topics.
+Complexity captures the number of distinct forces acting simultaneously on farmer decision-making. We operationalize this using Latent Dirichlet Allocation (LDA) (Blei, Ng, and Jordan, 2003) applied to the pooled text corpus. We fit a $K = 10$ topic model on all monthly responses, then extract per-month topic share vectors representing the distribution of discourse across topics.
 
 Our text-based complexity measure ($C_{\text{text}}$) is the mean Shannon entropy of the per-response topic distribution within each month:
 
@@ -91,9 +91,9 @@ where $\lambda_1^{(t)}$ is the share of variance explained by PC1 in the rolling
 
 #### 3.2.5 Ambiguity
 
-Ambiguity arises when the causal structure of the environment itself is unclear — when the meaning of signals is contested or contradictory [CITE: Bennett and Lemoine, 2014]. We capture this through both the distributional shape of individual AEB responses and the co-occurrence of contradictory sentiment in text responses.
+Ambiguity arises when the causal structure of the environment itself is unclear — when the meaning of signals is contested or contradictory (Bennett and Lemoine, 2014). We capture this through both the distributional shape of individual AEB responses and the co-occurrence of contradictory sentiment in text responses.
 
-Our quantitative ambiguity measure combines three components. First, we compute monthly excess kurtosis of the individual AEB distribution ($A_{\text{kurt},t}$), where a leptokurtic distribution (heavy tails, sharp center) indicates that most farmers agree but a substantial minority holds extreme views — a signature of an ambiguous signal. Second, we apply the Hartigan dip test [CITE: Hartigan and Hartigan, 1985] to the monthly AEB distribution as a formal test of bimodality ($A_{\text{dip},t}$); a bimodal distribution indicates that farmers cluster at two distinct sentiment levels, consistent with a mixed-signal environment. Third, we count the number of sign changes in monthly skewness over a 6-month rolling window ($A_{\text{flip},t}$), capturing instability in the direction of distributional asymmetry. The three components are standardized and averaged:
+Our quantitative ambiguity measure combines three components. First, we compute monthly excess kurtosis of the individual AEB distribution ($A_{\text{kurt},t}$), where a leptokurtic distribution (heavy tails, sharp center) indicates that most farmers agree but a substantial minority holds extreme views — a signature of an ambiguous signal. Second, we apply the Hartigan dip test (Hartigan and Hartigan, 1985) to the monthly AEB distribution as a formal test of bimodality ($A_{\text{dip},t}$); a bimodal distribution indicates that farmers cluster at two distinct sentiment levels, consistent with a mixed-signal environment. Third, we count the number of sign changes in monthly skewness over a 6-month rolling window ($A_{\text{flip},t}$), capturing instability in the direction of distributional asymmetry. The three components are standardized and averaged:
 
 $$A_{\text{quant},t} = \frac{1}{3}\left(z_{A_{\text{kurt}},t} + z_{A_{\text{dip}},t} + z_{A_{\text{flip}},t}\right)$$
 
@@ -113,13 +113,13 @@ We assess the construct validity of our VUCA measures using three complementary 
 
 **Discriminant validity.** We compute the full cross-correlation matrix of the four VUCA dimension scores. If each dimension captures a conceptually distinct aspect of environmental turbulence, we expect low to moderate inter-correlations. We flag pairs with Pearson $|r| > 0.70$ as potential evidence of construct overlap.
 
-**Predictive validity.** We assess whether VUCA dimension scores contain leading information for downstream agricultural economic outcomes using Granger causality tests [CITE: Granger, 1969]. Our external validation series are drawn from the Creighton University Main Street Economy survey [CITE: Goss and Natvig], a monthly survey of rural bank CEOs in agriculturally dependent regions of the United States: (i) a farm loan volume index, (ii) a farm equipment sales index, and (iii) a farmland price index. All three are diffusion indices with a neutral threshold of 50, analogous in construction to the AEB.
+**Predictive validity.** We assess whether VUCA dimension scores contain leading information for downstream agricultural economic outcomes using Granger causality tests (Granger, 1969). Our external validation series are drawn from the Creighton University Main Street Economy survey (Goss and Natvig, 2023), a monthly survey of rural bank CEOs in agriculturally dependent regions of the United States: (i) a farm loan volume index, (ii) a farm equipment sales index, and (iii) a farmland price index. All three are diffusion indices with a neutral threshold of 50, analogous in construction to the AEB.
 
 Prior to testing, we apply augmented Dickey-Fuller (ADF) tests to each series and first-difference any non-stationary series. We then estimate bivariate Granger causality models of the form:
 
 $$y_t = \alpha + \sum_{l=1}^{L} \beta_l y_{t-l} + \sum_{l=1}^{L} \gamma_l x_{t-l} + \varepsilon_t$$
 
-where $y_t$ is the external indicator, $x_t$ is the VUCA dimension score, and $L$ is the lag order. We test up to $L = 4$ monthly lags and report the F-statistic and p-value for the joint null hypothesis $H_0: \gamma_1 = \cdots = \gamma_L = 0$. Rejection of $H_0$ indicates that lagged VUCA scores contain predictive information for the external outcome beyond the outcome's own history. We interpret Granger causality as predictive relevance rather than structural causation [CITE: Sims, 1980].
+where $y_t$ is the external indicator, $x_t$ is the VUCA dimension score, and $L$ is the lag order. We test up to $L = 4$ monthly lags and report the F-statistic and p-value for the joint null hypothesis $H_0: \gamma_1 = \cdots = \gamma_L = 0$. Rejection of $H_0$ indicates that lagged VUCA scores contain predictive information for the external outcome beyond the outcome's own history. We interpret Granger causality as predictive relevance rather than structural causation (Sims, 1980).
 
 ---
 
@@ -132,11 +132,14 @@ where $y_t$ is the external indicator, $x_t$ is the VUCA dimension score, and $L
 - **[CHECK]** AEB sample size per wave (~400) and exact survey window — confirm with Mintert/Widmar documentation
 - **[CHECK]** Gross sales threshold ($500K) — verify eligibility criteria from AEB methodology docs
 - **[CHECK]** Date range: confirm first wave (Oct 2015) and last wave in sample
-- **[CITE]** Mintert and Widmar — AEB methodology paper/report
-- **[CITE]** Bennett and Lemoine (2014) — "What VUCA Really Means for You," HBR
-- **[CITE]** Baker, Bloom, Davis (2016) — EPU paper, QJE
-- **[CITE]** Blei, Ng, Jordan (2003) — LDA paper, JMLR
-- **[CITE]** Hartigan and Hartigan (1985) — dip test, Annals of Statistics
-- **[CITE]** Leduc and Liu (2016) — uncertainty and labor market, FRBSF
-- **[CITE]** Curtin — Michigan Index of Consumer Sentiment methodology
-- Consider adding a summary table of all sub-measures (variable name, formula, data source, expected direction)
+- ~~**[CITE]** Mintert and Widmar~~ — filled ✓ → Mintert, J. and Widmar, D.A. (2016). Purdue University/CME Group Ag Economy Barometer. **[CHECK]** confirm exact working paper/report citation details with Mintert/Widmar docs.
+- ~~**[CITE]** Bennett and Lemoine (2014)~~ — filled ✓
+- ~~**[CITE]** Baker, Bloom, Davis (2016)~~ — filled ✓
+- ~~**[CITE]** Blei, Ng, Jordan (2003)~~ — filled ✓
+- ~~**[CITE]** Hartigan and Hartigan (1985)~~ — filled ✓
+- ~~**[CITE]** Leduc and Liu (2016)~~ — filled ✓ → Leduc, S. and Liu, Z. (2016). "Uncertainty Shocks Are Aggregate Demand Shocks." *Journal of Monetary Economics* 82: 20–35. **[CHECK]** confirm this is the right Leduc/Liu paper.
+- ~~**[CITE]** Curtin~~ — filled ✓ → Curtin, R. (2007). "Consumer Sentiment Surveys: Worldwide Review and Assessment." *Journal of Business Cycle Measurement and Analysis* 2007(1). **[CHECK]** confirm exact reference.
+- ~~**[CITE]** Granger (1969)~~ — filled ✓ → Granger, C.W.J. (1969). "Investigating Causal Relations by Econometric Models and Cross-Spectral Methods." *Econometrica* 37(3): 424–438.
+- ~~**[CITE]** Goss and Natvig~~ — filled ✓ → Goss, E. and Natvig, B. (2023). Creighton University Rural Mainstreet Economy Survey. **[CHECK]** verify correct citation format for this survey series.
+- ~~**[CITE]** Sims (1980)~~ — filled ✓
+- ~~Consider adding a summary table~~ — **RESOLVED:** Table 1 in `table1_measures_summary.md` ✓
